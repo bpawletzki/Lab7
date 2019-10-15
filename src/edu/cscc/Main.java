@@ -1,16 +1,26 @@
 package edu.cscc;
+
 import java.util.*;
 
+/**
+ * Play rock paper scissors lizard spock
+ * @author Brian Pawletzki
+ * @version 20191012
+ */
 public class Main {
 
     private static Scanner input = new Scanner(System.in);
 
+    /**
+     * Main method to get human input, computer random entry, and to compare the two.
+     */
     public static void main(String[] args) {
         String h_pick;
         String c_pick;
         String answer;
         boolean isValid;
 
+        // Get the human input
         do {
             System.out.println("Let's play rock, paper, scissors, lizard, spock");
             do {
@@ -22,9 +32,12 @@ public class Main {
                 }
             } while (!isValid);
 
+            // Get the computer entry
+
             c_pick = RPSLSpock.generatePick();
             System.out.print("Computer picked " + c_pick + "  ");
 
+            // Compare the 2 picks
             if (c_pick.equalsIgnoreCase(h_pick)) {
                 System.out.println("Tie!");
             } else if (RPSLSpock.isComputerWin(c_pick, h_pick)) {
@@ -33,6 +46,7 @@ public class Main {
                 System.out.println("You win!");
             }
 
+            // Ask if we should replay.
             System.out.print("Play again ('y' or 'n'): ");
             answer = input.nextLine();
         } while ("Y".equalsIgnoreCase(answer));

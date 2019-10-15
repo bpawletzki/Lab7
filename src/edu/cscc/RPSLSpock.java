@@ -1,6 +1,11 @@
 package edu.cscc;
 import java.util.Random;
 
+/**
+ * Methods for rock paper scissors lizard spock
+ * @author Brian Pawletzki
+ * @version 20191015
+ */
 public class RPSLSpock {
 
     static Random rand = new Random(System.currentTimeMillis());
@@ -11,6 +16,12 @@ public class RPSLSpock {
     public static final String LIZARD = "lizard";
     public static final String SPOCK = "spock";
 
+    /**
+     * Determine if the human entered text is a valid entry
+     *
+     * @param pick This is the human entered value
+     * @return  boolean True if human entry is valid, false if invalid
+     */
     public static boolean isValidPick(String pick) {
         if (pick == null) {
             return false;
@@ -23,6 +34,11 @@ public class RPSLSpock {
                 SPOCK.equalsIgnoreCase(pick));
     }
 
+    /**
+     * Generate random computer pick
+     *
+     * @return String computer pick
+     */
     public static String generatePick() {
         String pick = null;
         switch (rand.nextInt(5)) {
@@ -45,6 +61,12 @@ public class RPSLSpock {
         return pick;
     }
 
+    /**
+     *
+     * @param c_pick computer pick
+     * @param h_pick human pick
+     * @return boolean true if computer wins, false if human wins
+     */
     public static boolean isComputerWin(String c_pick,String h_pick) {
         h_pick = h_pick.toLowerCase();
         return ((ROCK.equals(c_pick) && (SCISSORS.equals(h_pick) || LIZARD.equals(h_pick))) ||
